@@ -1,4 +1,4 @@
-PROJECT?=message-generator
+PROJECT?=age-generator
 APP_VERSION?=0.0.1
 GITHASH?=none-local
 BUILDSTAMP?=none-local
