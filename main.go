@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/json"
 	"net/http"
+	"os"
 )
 
 type Hello struct {
@@ -14,10 +15,12 @@ type Age struct {
 }
 
 func main() {
+	listenPort := os.Getenv("NOMAD_PORT_http")
+
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", helloHandler)
 	mux.HandleFunc("/age", ageHandler)
-	http.ListenAndServe(":8080", mux)
+	http.ListenAndServe(":"+listenPort, mux)
 }
 
 func helloHandler(w http.ResponseWriter, r *http.Request) {
