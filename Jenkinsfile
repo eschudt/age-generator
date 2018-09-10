@@ -6,9 +6,7 @@ node {
     }
 
     stage('Test and Build image') {
-        steps {
-          sh 'make test'
-        }
+        sh 'make test'
         app = docker.build("eschudt/age-generator")
     }
 
