@@ -28,8 +28,6 @@ node {
     }
 
     stage('Deploy - Dev') {
-        steps {
-            echo 'Deployed to Dev'
-        }
+        sh 'Deployed to Dev'
     }
 }
