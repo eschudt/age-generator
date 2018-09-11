@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"math/rand"
 	"net/http"
 	"os"
 )
@@ -35,7 +36,8 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func ageHandler(w http.ResponseWriter, r *http.Request) {
-	data := Age{35}
+	age := rand.Intn(99)
+	data := Age{age}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	resp, err := json.Marshal(data)
