@@ -12,7 +12,8 @@ type Hello struct {
 }
 
 type Age struct {
-	Age int
+	Age      int
+	YearBorn int
 }
 
 func main() {
@@ -37,7 +38,10 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 
 func ageHandler(w http.ResponseWriter, r *http.Request) {
 	age := rand.Intn(99)
-	data := Age{age}
+	data := Age{
+		Age:      age,
+		YearBorn: 2018 - age,
+	}
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
 	resp, err := json.Marshal(data)
