@@ -27,7 +27,7 @@ node {
     }
 
     stage('Deploy - Dev') {
-        sh '/root/deploy.sh /root/public_server.txt age-generator ${env.BUILD_NUMBER}'
+        sh "/root/deploy.sh /root/public_server.txt age-generator ${env.BUILD_NUMBER}"
         sh 'echo "Deployed to Dev"'
     }
 }
